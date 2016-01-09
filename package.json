@@ -1,1 +1,23 @@
-{}
+{
+  "name": "underscore-loader",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=4.2.1"
+  },
+  "description": "Underscore/Lodash template loader for webpack",
+  "main": "./lib/index.js",
+  "author": "Tomek Fijoł",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "readmeFilename": "README.md",
+  "keywords": [
+    "webpack",
+    "loader",
+    "underscore",
+    "lodash"
+  ],
+  "repository": "tomek-f/underscore-loader",
+  "dependencies": {}
+}
