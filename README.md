@@ -6,17 +6,20 @@
 // loader query
 { test: /\.tpl$/, loader: 'underscore-loader?data=hello' }
 {
-    test: /\.png$/,
+    test: /\.tpl$/,
     loader: 'underscore-loader',
     query: { data: 'hello' }
 }
 
 // webpack settings
-underscoreTemplateLoader: {
-  tplSettings: {
-    escape: /\{\{([^{].*?)\}\}/gm,
-    interpolate: /\{\{\{(.+?)\}\}\}/gm,
-    evaluate: /\{\%(.+?)\%\}/g
+{
+  underscoreTemplateLoader: {
+    engine: 'lodash',
+    tplSettings: {
+      escape: /\{\{([^{].*?)\}\}/gm,
+      interpolate: /\{\{\{(.+?)\}\}\}/gm,
+      evaluate: /\{\%(.+?)\%\}/g
+    }
   }
 }
 ```
