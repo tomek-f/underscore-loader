@@ -1,18 +1,3 @@
-// query
-//{ test: /\.png$/, loader: "url-loader?mimetype=image/png" }
-//{
-//    test: /\.png$/,
-//    loader: "url-loader",
-//    query: { mimetype: "image/png" }
-//}
-
-// settings
-// tplSettings: {
-//  escape: /\{\{([^{].*?)\}\}/gm,
-//  interpolate: /\{\{\{(.+?)\}\}\}/gm,
-//  evaluate: /\{\%(.+?)\%\}/g
-//}
-
 var _ = require('lodash');
 var loaderUtils = require('loader-utils');
 
