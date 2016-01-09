@@ -11,7 +11,7 @@
     query: { data: 'hello' }
 }
 
-// webpack settings
+// webpack settings (defaults)
 {
   underscoreTemplateLoader: {
     engine: 'lodash',
@@ -21,7 +21,10 @@
       escape: /<%-([\s\S]+?)%>/g,
       interpolate: /<%=([\s\S]+?)%>/g,
       evaluate: /<%([\s\S]+?)%>/g
-    }
+    },
+    exportTemplate:
+      'var _ = require(<%= engine %>);\n\n' +
+      'module.exports = <%= template %>\n';
   }
 }
 ```
