@@ -18,8 +18,9 @@ var loaderUtils = require('loader-utils');
 
 module.exports = function (source) {
   this.cacheable && this.cacheable();
+  var opts = this.options._templateLoader = this.options._templateLoader || {};
   var queryOptions = loaderUtils.parseQuery(this.query);
-  var engine = this.options.engine || 'lodash';
-  var template = _.template(source, queryOptions, this.options.tplSettings);
-  return 'var _ = require(' + engine + ');\n\nmodule.exports = ' + template + '\n';
+  var template = _.template(source, queryOptions, opts.tplSettings);
+  opts.engine = opts.engine || 'lodash';
+  return 'var _ = require(' + opts.engine + ');\n\nmodule.exports = ' + template + '\n';
 };
