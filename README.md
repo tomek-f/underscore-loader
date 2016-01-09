@@ -15,9 +15,12 @@
 {
   underscoreTemplateLoader: {
     engine: 'lodash',
-    escape: /<%-([\s\S]+?)%>/g,
-    interpolate: /<%=([\s\S]+?)%>/g,
-    evaluate: /<%([\s\S]+?)%>/g
+    templateOptions: {
+      escape: /<%-([\s\S]+?)%>/g,
+      interpolate: /<%=([\s\S]+?)%>/g,
+      evaluate: /<%([\s\S]+?)%>/g
+    },
+    minifierOptions: {}
   }
 }
 ```
