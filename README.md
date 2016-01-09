@@ -15,11 +15,9 @@
 {
   underscoreTemplateLoader: {
     engine: 'lodash',
-    tplSettings: {
-      escape: /\{\{([^{].*?)\}\}/gm,
-      interpolate: /\{\{\{(.+?)\}\}\}/gm,
-      evaluate: /\{\%(.+?)\%\}/g
-    }
+    escape: /<%-([\s\S]+?)%>/g,
+    interpolate: /<%=([\s\S]+?)%>/g,
+    evaluate: /<%([\s\S]+?)%>/g
   }
 }
 ```
