@@ -14,7 +14,6 @@
 // webpack settings (defaults)
 {
   underscoreTemplateLoader: {
-    engine: 'lodash',
     minify: false,
     minifierOptions: {
       removeComments: true,
@@ -25,10 +24,7 @@
       // escape: /<%-([\s\S]+?)%>/g,
       // interpolate: /<%=([\s\S]+?)%>/g,
       // evaluate: /<%([\s\S]+?)%>/g
-    },
-    exportTemplate:
-      'var _ = require(<%= engine %>);\n\n' +
-      'module.exports = <%= template %>\n';
+    }
   }
 }
 ```
