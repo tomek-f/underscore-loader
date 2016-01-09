@@ -16,11 +16,15 @@
   underscoreTemplateLoader: {
     engine: 'lodash',
     minify: false,
-    minifierOptions: {},
+    minifierOptions: {
+      removeComments: true,
+      collapseWhitespace: true,
+      conservativeCollapse: true
+    },
     templateOptions: {
-      escape: /<%-([\s\S]+?)%>/g,
-      interpolate: /<%=([\s\S]+?)%>/g,
-      evaluate: /<%([\s\S]+?)%>/g
+      // escape: /<%-([\s\S]+?)%>/g,
+      // interpolate: /<%=([\s\S]+?)%>/g,
+      // evaluate: /<%([\s\S]+?)%>/g
     },
     exportTemplate:
       'var _ = require(<%= engine %>);\n\n' +
