@@ -5,13 +5,14 @@ module.exports = function (source) {
 
   this.cacheable && this.cacheable();
 
-  var opts = this.options.underscoreTemplateLoader =
-    this.options.underscoreTemplateLoader || {};
   var queryOptions = loaderUtils.parseQuery(this.query);
-  var template = _.template(source, queryOptions, opts.tplSettings);
-  opts.engine = opts.engine || 'lodash';
+  var opts = _.object.merge({},
+    this.options.underscoreTemplateLoader,
+    queryOptions);
+  var template = _.template(source, opts);
+  var engine = opts.engine || 'lodash'; // todo defaults
 
-  return 'var _ = require(' + opts.engine + ');\n\nmodule.exports = ' +
+  return 'var _ = require(' + engine + ');\n\nmodule.exports = ' +
     template + '\n';
 
 };
