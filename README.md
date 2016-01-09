@@ -12,9 +12,11 @@
 }
 
 // webpack settings
- tplSettings: {
-  escape: /\{\{([^{].*?)\}\}/gm,
-  interpolate: /\{\{\{(.+?)\}\}\}/gm,
-  evaluate: /\{\%(.+?)\%\}/g
+underscoreTemplateLoader: {
+  tplSettings: {
+    escape: /\{\{([^{].*?)\}\}/gm,
+    interpolate: /\{\{\{(.+?)\}\}\}/gm,
+    evaluate: /\{\%(.+?)\%\}/g
+  }
 }
 ```
