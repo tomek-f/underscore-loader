@@ -19,5 +19,9 @@
     "lodash"
   ],
   "repository": "tomek-f/underscore-loader",
-  "dependencies": {}
+  "dependencies": {
+    "html-minifier": "^1.1.1",
+    "loader-utils": "^0.2.12",
+    "lodash": "^3.10.1"
+  }
 }
