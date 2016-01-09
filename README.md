@@ -15,12 +15,13 @@
 {
   underscoreTemplateLoader: {
     engine: 'lodash',
+    minify: false,
+    minifierOptions: {},
     templateOptions: {
       escape: /<%-([\s\S]+?)%>/g,
       interpolate: /<%=([\s\S]+?)%>/g,
       evaluate: /<%([\s\S]+?)%>/g
-    },
-    minifierOptions: {}
+    }
   }
 }
 ```
