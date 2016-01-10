@@ -5,12 +5,9 @@
     "node": ">=4.2.1"
   },
   "description": "Underscore/Lodash template loader for webpack",
-  "main": "./lib/index.js",
+  "main": "./index.js",
   "author": "Tomek Fijoł",
   "license": "MIT",
-  "files": [
-    "lib"
-  ],
   "readmeFilename": "README.md",
   "keywords": [
     "webpack",
@@ -20,9 +17,9 @@
   ],
   "repository": "tomek-f/underscore-loader",
   "dependencies": {
+    "cmnjs": "^1.0.5",
     "html-minifier": "^1.1.1",
     "loader-utils": "^0.2.12",
-    "lodash.merge": "^3.3.2",
     "lodash.template": "^3.6.2"
   }
 }
