@@ -5,7 +5,7 @@ var minify = require('html-minifier').minify;
 
 var defaults = {
   engine: 'lodash',
-  engineFull: null, 
+  engineFull: null,
   minify: false,
   minifierOptions: {
     removeComments: true,
@@ -21,9 +21,9 @@ module.exports = function (source) {
 
   var queryOptions = loaderUtils.parseQuery(this.query);
   var config = merge({}, defaults, this.options.underscoreTemplateLoader,
-    { templateOptions: queryOptions });
+    {templateOptions: queryOptions});
   var templateLocal;
-  
+
   if (config.engineFull === null) {
     config.engineFull = 'var _ = require(\'' + config.engine + '\');\n\n';
   }
