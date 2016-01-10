@@ -2,4 +2,3 @@
 
 * readme.md
 * lodash.merge -> cmnjs/object/extend/deep
-* 
