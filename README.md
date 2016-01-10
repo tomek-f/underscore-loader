@@ -83,7 +83,7 @@
 }
 ```
 
-### method #2 (webpack config)
+### method #2 (webpack config `underscoreTemplateLoader.templateOptions`)
 
 ```javascript
 {
