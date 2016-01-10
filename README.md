@@ -57,21 +57,29 @@
 * if you don't use any logic in your templates, you can pass empty string (`engineFull: ''`)
 * escaping needs escape method: `engineFull: 'var _ = { escape: require(\'lodash.escape\') };'`
 * if you don't need escape method, you can change var name and use it instead of `_` in template: `engineFull: 'var foo = require()''`
-* you can use your own module as template engine (`engine: '../js/tplEngine'`), path is relative to template, use absolute path or resolve (with absolute path) if your templates have different relative path to your module
+* you can use your own module as template engine (`engine: '../js/tplEngine'`), path is relative to template, use absolute path or resolve if your templates have different relative path to your module
 
 ### example of custom module - forEach heaven :)
 
 ```javascript
 module.exports = {
-  forEachArr: Function.prototype.call.bind(Array.prototype.forEach)
+  forEachArr: Function.prototype.call.bind(Array.prototype.forEach),
   forEach: require('lodash.foreach'),
   each: $.each,
   escape: require('lodash.escape')
 };
 ```
+### example of custom module in string
+
+```javascript
+{
+  engineFull: 'var _ = { escape: require(\'lodash.escape\') };'
+}
+```
+
 ### path examples
 
-#### same relative path
+#### same relative path for every module
 
 ```javascript
 {
@@ -89,17 +97,77 @@ module.exports = {
 {
   engine: '/home/johndoe/Workspace/project/src/js/tplEngine'
 }
-// or
+// or (in node)
 {
   engine: process.cwd() + '/src/js/tplEngine'
 }
-// or (in node)
+// or
 {
   engineFull: 'var _ = require(\'/home/johndoe/Workspace/project/src/js/tplEngine\');'
 }
 // or (in node)
 {
   engineFull: 'var _ = require(\'' + process.cwd() + '/src/js/tplEngine\');'
+}
+```
+
+#### resolve (same relative path)
+
+in loder options (webpack config):
+
+```javascript
+{
+  engine: 'tplEngine'
+}
+// or
+{
+  engineFull: 'var _ = require(\'tplEngine\');'
+}
+```
+
+in webpack config resolve object:
+
+```javascript
+{
+  resolve: {
+    alias: {
+      tplEngine: '../js/templateLoaderEngine.js'
+    }
+  }
+}
+```
+
+#### resolve (absolute path)
+
+in loder options (webpack config):
+
+```javascript
+{
+  engine: 'tplEngine'
+}
+// or
+{
+  engineFull: 'var _ = require(\'tplEngine\');'
+}
+```
+
+in webpack config resolve object:
+
+```javascript
+{
+  resolve: {
+    alias: {
+      tplEngine: '/home/johndoe/Workspace/project/src/js/tplEngine.js'
+    }
+  }
+}
+// or (in node)
+{
+  resolve: {
+    alias: {
+      tplEngine: process.cwd() + '/src/js/tplEngine.js'
+    }
+  }
 }
 ```
 
