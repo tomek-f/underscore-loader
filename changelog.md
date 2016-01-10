@@ -1,5 +1,9 @@
 # changelog.md
 
+## 0.0.1
+
+* `.gitignore` fix
+
 ## 0.0.0
 
 * initial release
