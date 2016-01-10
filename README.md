@@ -2,11 +2,30 @@
 
 > Underscore/Lodash template loader for webpack
 
+## defaults
+
+```javascript
+// webpack settings (defaults)
+{
+  underscoreTemplateLoader: {
+    engine: 'lodash',
+    engineFull: null,
+    minify: false,
+    minifierOptions: {
+      removeComments: true,
+      collapseWhitespace: true,
+      conservativeCollapse: true
+    },
+    templateOptions: {}
+  }
+}
+```
+
 ## pass template options - [lodash documentation](https://lodash.com/docs#template)
 
-### method #1
+### method #1 (webpack config loader)
+
 ```javascript
-// loader query - options for underscore/lodash
 {
   module: {
     loaders: [
@@ -17,11 +36,8 @@
     ]
   }
 }
-```
 
-### method #2
-
-```javascript
+// or
 {
   module: {
     loaders: [
@@ -37,7 +53,7 @@
 }
 ```
 
-### method #3 (webpack config)
+### method #2 (webpack config)
 
 ```javascript
 {
@@ -45,24 +61,6 @@
     templateOptions: {
       variable: 'data'
     }
-  }
-}
-```
-
-## defaults
-
-```javascript
-// webpack settings (defaults)
-{
-  underscoreTemplateLoader: {
-    engine: 'lodash', // or: 'underscore', require('z'), { forEach: require('lodash.foreach'), escape: require('lodash.escape') } - remember to put deps in your package.json
-    minify: false,
-    minifierOptions: {
-      removeComments: true,
-      collapseWhitespace: true,
-      conservativeCollapse: true
-    },
-    templateOptions: {}
   }
 }
 ```
