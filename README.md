@@ -210,3 +210,7 @@ in webpack config resolve object:
   }
 }
 ```
+
+## Changelog
+
+[View on github](https://github.com/tomek-f/underscore-loader/blob/master/changelog.md).
