@@ -2,13 +2,27 @@
 
 > Underscore/Lodash template loader for webpack
 
+## pass template options - (see lodash documentation)[https://lodash.com/docs#template]
+
 ```javascript
 // loader query - options for underscore/lodash
-{ test: /\.tpl$/, loader: 'underscore-loader?variable=data' }
 {
-    test: /\.tpl$/,
-    loader: 'underscore-loader',
-    query: { variable: 'data' }
+  module: {
+    loaders: [
+      {
+        test: /\.tpl$/,
+        loader: 'underscore-loader?variable=data'
+      }
+    ]
+  }
+}
+//
+{
+  test: /\.tpl$/,
+  loader: 'underscore-loader',
+  query: {
+    variable: 'data'
+  }
 }
 
 // webpack settings (defaults)
@@ -21,11 +35,7 @@
       collapseWhitespace: true,
       conservativeCollapse: true
     },
-    templateOptions: {
-      // escape: /<%-([\s\S]+?)%>/g,
-      // interpolate: /<%=([\s\S]+?)%>/g,
-      // evaluate: /<%([\s\S]+?)%>/g
-    }
+    templateOptions: {}
   }
 }
 ```
