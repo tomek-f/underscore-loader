@@ -1,6 +1,6 @@
 # underscore-loader
 
-> Underscore/Lodash template loader for webpack
+> Webpack loader for pre-compiled Underscore and Lodash templates (with HTML minification)
 
 * template is compliled with [lodash.template](https://www.npmjs.com/package/lodash.template)
 * template can be minified by [html-minifier](https://www.npmjs.com/package/html-minifier) - set `minify` to `true`
@@ -8,7 +8,7 @@
 ## options (defaults)
 
 ```javascript
-// add to webpack config
+// add to webpack config - loader options
 {
   underscoreTemplateLoader: {
     engine: 'lodash',
@@ -113,7 +113,7 @@ module.exports = {
 
 #### resolve (same relative path)
 
-in loder options (webpack config):
+in loader options (webpack config):
 
 ```javascript
 {
@@ -139,7 +139,7 @@ in webpack config resolve object:
 
 #### resolve (absolute path)
 
-in loder options (webpack config):
+in loader options (webpack config):
 
 ```javascript
 {
