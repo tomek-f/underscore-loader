@@ -2,8 +2,9 @@
 
 > Underscore/Lodash template loader for webpack
 
-## pass template options - (see lodash documentation)[https://lodash.com/docs#template]
+## pass template options - [lodash documentation](https://lodash.com/docs#template)
 
+### method #1
 ```javascript
 // loader query - options for underscore/lodash
 {
@@ -16,15 +17,41 @@
     ]
   }
 }
-//
+```
+
+### method #2
+
+```javascript
 {
-  test: /\.tpl$/,
-  loader: 'underscore-loader',
-  query: {
-    variable: 'data'
+  module: {
+    loaders: [
+      {
+        test: /\.tpl$/,
+        loader: 'underscore-loader',
+        query: {
+          variable: 'data'
+        }
+      }
+    ]
   }
 }
+```
 
+### method #3 (webpack config)
+
+```javascript
+{
+  underscoreTemplateLoader: {
+    templateOptions: {
+      variable: 'data'
+    }
+  }
+}
+```
+
+## defaults
+
+```javascript
 // webpack settings (defaults)
 {
   underscoreTemplateLoader: {
