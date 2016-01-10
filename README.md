@@ -8,7 +8,6 @@
 ## options (defaults)
 
 ```javascript
-// add to webpack config - loader options
 {
   underscoreTemplateLoader: {
     engine: 'lodash',
