@@ -5,10 +5,10 @@
 * template is compliled with [lodash.template](https://www.npmjs.com/package/lodash.template)
 * template can be minified by [html-minifier](https://www.npmjs.com/package/html-minifier) - set `minify` to `true`
 
-## defaults
+## options (defaults)
 
 ```javascript
-// webpack settings (defaults)
+// add to webpack config
 {
   underscoreTemplateLoader: {
     engine: 'lodash',
