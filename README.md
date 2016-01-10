@@ -29,13 +29,13 @@
 * string to put in `'var _ = require(\'' + engine + '\');'` in module for template internal use
 * unused if `engineFull` is not `null`
 * `lodash` is default, change it to `underscore` or `some-other-engine`
-* see [setting engine](#setting-engine) for more
+* see [setting engine](#setting-engine) for more examples
 
 ### `engineFull`
 
 * full string to put `'var _ = require('lodash');'` in module for template internal use
 * you can change it to sth else, even `'var trololo = require('some-other-engine');'`
-* see [setting engine](#setting-engine) for more
+* see [setting engine](#setting-engine) for more examples
 
 ### `minify`
 
