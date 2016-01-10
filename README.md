@@ -26,16 +26,16 @@
 
 ### `engine`
 
-* string to put in `'var _ = require(\'' + engine + '\');'` in module for template internal use
+* value to set in `'var _ = require(\'' + engine + '\');'` in the template output
 * unused if `engineFull` is not `null`
 * `lodash` is default, change it to `underscore` or `some-other-engine`
-* see [setting engine](#setting-engine) for more examples
+* see [setting template engine](#setting-template-engine) for more examples
 
 ### `engineFull`
 
-* full string to put `'var _ = require('lodash');'` in module for template internal use
-* you can change it to sth else, even `'var trololo = require('some-other-engine');'`
-* see [setting engine](#setting-engine) for more examples
+* value to set (eg. `engineFull: 'var _ = require('lodash');'`) in the template output
+* you can change it to sth else: `'engineFull: var trololo = require('some-other-engine');'` or empty string
+* see [setting template engine](#setting-template-engine) for more examples
 
 ### `minify`
 
@@ -50,9 +50,13 @@
 
 * template options - [lodash documentation](https://lodash.com/docs#template)
 
-## setting engine
+## setting template engine
 
-* TODO cases
+* change `lodash` to sth else (eg. `engine: 'undersocre'`)
+* set underscore/lodash/other-module dependency in `package.json`
+* if you don't use any logic in your templates, you can pass empty string (`engineFull: ''`)
+* escaping needs escape method: `engineFull: 'var _ = { escape: require(\'lodash.escape\') };'`
+* if you don't need escape method, you can change var name and use it instead of `_` in template: `engineFull: 'var foo = require()''`
 
 ## pass template options - [lodash documentation](https://lodash.com/docs#template)
 
