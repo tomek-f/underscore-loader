@@ -57,6 +57,51 @@
 * if you don't use any logic in your templates, you can pass empty string (`engineFull: ''`)
 * escaping needs escape method: `engineFull: 'var _ = { escape: require(\'lodash.escape\') };'`
 * if you don't need escape method, you can change var name and use it instead of `_` in template: `engineFull: 'var foo = require()''`
+* you can use your own module as template engine (`engine: '../js/tplEngine'`), path is relative to template, use absolute path or resolve (with absolute path) if your templates have different relative path to your module
+
+### example of custom module - forEach heaven :)
+
+```javascript
+module.exports = {
+  forEachArr: Function.prototype.call.bind(Array.prototype.forEach)
+  forEach: require('lodash.foreach'),
+  each: $.each,
+  escape: require('lodash.escape')
+};
+```
+### path examples
+
+#### same relative path
+
+```javascript
+{
+  engine: '../js/tplEngine'
+}
+// or
+{
+  engineFull: 'var _ = require(\'../js/tplEngine\');'
+}
+```
+
+#### absolute path
+
+```javascript
+{
+  engine: '/home/johndoe/Workspace/project/src/js/tplEngine'
+}
+// or
+{
+  engine: process.cwd() + '/src/js/tplEngine'
+}
+// or (in node)
+{
+  engineFull: 'var _ = require(\'/home/johndoe/Workspace/project/src/js/tplEngine\');'
+}
+// or (in node)
+{
+  engineFull: 'var _ = require(\'' + process.cwd() + '/src/js/tplEngine\');'
+}
+```
 
 ## pass template options - [lodash documentation](https://lodash.com/docs#template)
 
