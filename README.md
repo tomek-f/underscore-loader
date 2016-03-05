@@ -53,10 +53,28 @@
 
 * change `lodash` to sth else (eg. `engine: 'undersocre'`)
 * set underscore/lodash/other-module dependency in `package.json`
+* escaping needs escape method: `engineFull: 'var _ = { escape: require(\'lodash.escape\') };'` (THIS IS RECOMMENDED!!!)
 * if you don't use any logic in your templates, you can pass empty string (`engineFull: ''`)
-* escaping needs escape method: `engineFull: 'var _ = { escape: require(\'lodash.escape\') };'`
-* if you don't need escape method, you can change var name and use it instead of `_` in template: `engineFull: 'var foo = require()''`
+* if you don't need escape method, you can change var name and use it instead of `_` in template: `engineFull: 'var foo = require()'`
 * you can use your own module as template engine (`engine: '../js/tplEngine'`), path is relative to template, use absolute path or resolve if your templates have different relative path to your module
+
+### example of custom module in string
+
+THIS IS RECOMMENDED SETUP.
+
+```javascript
+{
+  engineFull: 'var _ = { escape: require(\'lodash.escape\') };'
+}
+```
+
+or
+
+```javascript
+{
+  engineFull: 'var _ = { escape: require(\'lodash/escape\') };'
+}
+```
 
 ### example of custom module - forEach heaven :)
 
@@ -67,13 +85,6 @@ module.exports = {
   each: $.each,
   escape: require('lodash.escape')
 };
-```
-### example of custom module in string
-
-```javascript
-{
-  engineFull: 'var _ = { escape: require(\'lodash.escape\') };'
-}
 ```
 
 ### path examples
