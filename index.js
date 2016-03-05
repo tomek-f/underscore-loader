@@ -20,16 +20,12 @@ module.exports = function (source) {
   this.cacheable && this.cacheable();
 
   var queryOptions = loaderUtils.parseQuery(this.query);
-  var config = merge({}, defaults, this.options.underscoreTemplateLoader,
-    {templateOptions: queryOptions});
+  var config = merge({}, defaults, this.options.underscoreTemplateLoader, { templateOptions: queryOptions });
   var templateLocal;
 
-  if (config.engineFull === null) {
-    config.engineFull = 'var _ = require(\'' + config.engine + '\');\n\n';
-  }
+  if (config.engineFull === null) config.engineFull = 'var _ = require(\'' + config.engine + '\');\n\n';
 
-  templateLocal =
-    config.minify ? minify(source, config.minifierOptions) : source;
+  templateLocal = config.minify ? minify(source, config.minifierOptions) : source;
   templateLocal = template(templateLocal, config.templateOptions);
 
   return config.engineFull + 'module.exports = ' + templateLocal + ';\n';

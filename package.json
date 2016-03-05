@@ -4,7 +4,7 @@
   "engines": {
     "node": ">=4.2.1"
   },
-  "description": "Webpack loader for pre-compiled Underscore and Lodash templates (with HTML minification)",
+  "description": "Webpack loader for pre-compiled Underscore/Lodash templates with HTML minification",
   "main": "./index.js",
   "author": "Tomek Fijoł",
   "license": "MIT",
