@@ -34,6 +34,7 @@
 
 * value to set (eg. `engineFull: 'var _ = require('lodash');'`) in the template output
 * you can change it to sth else: `'engineFull: var trololo = require('some-other-engine');'` or empty string
+* recommended value: `engineFull: 'var _ = { escape: require(\'lodash.escape\') };'`
 * see [setting template engine](#setting-template-engine) for more examples
 
 ### `minify`
