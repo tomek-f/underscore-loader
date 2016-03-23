@@ -1,6 +1,6 @@
 # changelog.md
 
-## 0.3.0
+## 0.1.0
 
 * deps (html-minifier@1.3.1, cmnjs@1.1.0)
 
