@@ -2,6 +2,7 @@
 
 ## x.x.x
 
+* readme
 * deps (html-minifier, cmnjs, loader-utils, lodash.template)
 
 ## 0.1.0

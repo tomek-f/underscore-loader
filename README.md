@@ -69,11 +69,11 @@ THIS IS RECOMMENDED SETUP.
 }
 ```
 
-or
+or (NOT RECOMMENDED)
 
 ```javascript
 {
-  engineFull: 'var _ = { escape: require(\'lodash/escape\') };'
+  engineFull: 'var _ = require(\'customModulePath\');'
 }
 ```
 
