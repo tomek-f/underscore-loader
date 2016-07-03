@@ -1,5 +1,9 @@
 # changelog.md
 
+## x.x.x
+
+* deps (html-minifier, cmnjs, loader-utils, lodash.template)
+
 ## 0.1.0
 
 * deps (html-minifier@1.3.1, cmnjs@1.1.0)
