@@ -1,8 +1,8 @@
 # changelog.md
 
-## x.x.x
+## 0.2.0
 
-* readme
+* readme fix
 * deps (html-minifier, cmnjs, loader-utils, lodash.template)
 
 ## 0.1.0
