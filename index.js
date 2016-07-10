@@ -10,7 +10,7 @@ var defaults = {
   minifierOptions: {
     removeComments: true,
     collapseWhitespace: true,
-    conservativeCollapse: false
+    conservativeCollapse: true
   },
   templateOptions: {}
 };
