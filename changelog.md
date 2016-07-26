@@ -1,5 +1,10 @@
 # changelog.md
 
+## 0.3.0
+
+* rename index.js
+* deps
+
 ## 0.2.0
 
 * readme fix
