@@ -17,9 +17,9 @@
   ],
   "repository": "tomek-f/underscore-loader",
   "dependencies": {
-    "cmnjs": "^2.0.2",
+    "cmnjs": "^2.1.0",
     "html-minifier": "^3.0.1",
     "loader-utils": "^0.2.15",
-    "lodash.template": "^4.2.5"
+    "lodash.template": "^4.3.0"
   }
 }
