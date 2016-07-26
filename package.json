@@ -5,7 +5,7 @@
     "node": ">=4.2.1"
   },
   "description": "Webpack loader for pre-compiled Underscore/Lodash templates with HTML minification",
-  "main": "./index.js",
+  "main": "underscoreLoader.js",
   "author": "Tomek Fijoł",
   "license": "MIT",
   "readmeFilename": "README.md",
