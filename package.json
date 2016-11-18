@@ -6,7 +6,7 @@
   },
   "description": "Webpack loader for pre-compiled Underscore/Lodash templates with HTML minification",
   "main": "underscoreLoader.js",
-  "author": "Tomek Fijoł",
+  "author": "Tomek Fijoł <tomekfijol@gmail.com> (http://tomekf.pl/)",
   "license": "MIT",
   "readmeFilename": "README.md",
   "keywords": [
