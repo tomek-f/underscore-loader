@@ -1,5 +1,10 @@
 # changelog.md
 
+## 0.4.0
+
+* new internal extend deep module
+* deps
+
 ## 0.3.0
 
 * rename index.js
