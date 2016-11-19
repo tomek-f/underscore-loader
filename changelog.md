@@ -1,6 +1,6 @@
 # changelog.md
 
-## 0.4.0
+## 1.0.0
 
 * new internal extend deep module
 * deps
