@@ -4,7 +4,7 @@ const template = require('lodash.template');
 const loaderUtils = require('loader-utils');
 const minify = require('html-minifier').minify;
 
-const merge = require('./extendDeep');
+const extendDeepImmutable = require('./extendDeepImmutable');
 
 const defaults = {
   engine: 'lodash',
@@ -22,7 +22,8 @@ module.exports = function (source) {
   this.cacheable && this.cacheable();
 
   const queryOptions = loaderUtils.parseQuery(this.query);
-  const config = merge({}, defaults, this.options.underscoreTemplateLoader, { templateOptions: queryOptions });
+  const config = extendDeepImmutable({}, defaults,
+    this.options.underscoreTemplateLoader, { templateOptions: queryOptions });
   let templateLocal;
 
   if (config.engineFull === null) config.engineFull = 'var _ = require(\'' + config.engine + '\');\n\n';
