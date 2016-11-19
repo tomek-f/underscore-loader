@@ -1,10 +1,11 @@
+/* eslint "no-unused-expressions": 0 */
+
 'use strict';
 
-const template = require('lodash.template');
 const loaderUtils = require('loader-utils');
+const template = require('lodash.template');
 const minify = require('html-minifier').minify;
-
-const extendDeepImmutable = require('./extendDeepImmutable');
+const extendDeepImmutable = require('extend-deep-immutable');
 
 const defaults = {
   engine: 'lodash',
