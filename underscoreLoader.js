@@ -23,8 +23,8 @@ module.exports = function (source) {
   this.cacheable && this.cacheable();
 
   const queryOptions = loaderUtils.parseQuery(this.query);
-  const config = extendDeepImmutable({}, defaults,
-    this.options.underscoreTemplateLoader, { templateOptions: queryOptions });
+  const config = [this.options.underscoreTemplateLoader, { templateOptions: queryOptions }]
+    .reduce(extendDeepImmutable, defaults);
   let templateLocal;
 
   if (config.engineFull === null) config.engineFull = 'var _ = require(\'' + config.engine + '\');\n\n';
