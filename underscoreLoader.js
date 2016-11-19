@@ -27,8 +27,8 @@ module.exports = function (source) {
     .reduce(extendDeepImmutable, defaults);
   let templateLocal;
 
-  if (config.engineFull === null) config.engineFull = 'var _ = require(\'' + config.engine + '\');\n\n';
+  if (config.engineFull === null) config.engineFull = `var _ = require('${ config.engine }');\n\n`;
   templateLocal = config.minify ? minify(source, config.minifierOptions) : source;
   templateLocal = template(templateLocal, config.templateOptions);
-  return config.engineFull + 'module.exports = ' + templateLocal + ';\n';
+  return `${ config.engineFull } module.exports = ${ templateLocal };\n`;
 };

@@ -1,4 +1,4 @@
 # 2do
 
 * [ ] tests
-* [ ] es6 template strings
+* [x] es6 template strings
