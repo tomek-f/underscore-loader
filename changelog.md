@@ -1,5 +1,10 @@
 # changelog.md
 
+## 2.0.0
+
+* deps
+* webpack 2 changes
+
 ## 1.0.0
 
 * new internal extend deep module
