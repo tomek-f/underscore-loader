@@ -20,8 +20,6 @@ const defaults = {
 };
 
 module.exports = function (source) {
-  this.cacheable && this.cacheable();
-
   const queryOptions = loaderUtils.parseQuery(this.query);
   const config = [defaults, this.options.underscoreTemplateLoader, { templateOptions: queryOptions }]
     .reduce(extendDeepImmutable);
