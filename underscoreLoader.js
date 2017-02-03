@@ -1,5 +1,3 @@
-/* eslint "no-unused-expressions": 0 */
-
 'use strict';
 
 const loaderUtils = require('loader-utils');
@@ -10,7 +8,7 @@ const extendDeepImmutable = require('extend-deep-immutable');
 const defaults = {
   engine: 'lodash',
   engineFull: null,
-  minify: false,
+  minify: true,
   minifierOptions: {
     removeComments: true,
     collapseWhitespace: true,
@@ -20,14 +18,12 @@ const defaults = {
 };
 
 module.exports = function (source) {
-  const queryOptions = loaderUtils.parseQuery(this.query);
-  const config = [defaults, this.options.underscoreTemplateLoader, { templateOptions: queryOptions }]
+  const config = [
+    defaults,
+    loaderUtils.getLoaderConfig(this, 'underscoreTemplateLoader')
+  ]
     .reduce(extendDeepImmutable);
   let templateLocal;
-  
-  console.log(this);
-  console.log(this.options);
-  conole.log(loaderUtils.getLoaderConfig(this, 'underscoreTemplateLoader'));
 
   if (config.engineFull === null) config.engineFull = `var _ = require('${ config.engine }');`;
   templateLocal = config.minify ? minify(source, config.minifierOptions) : source;
