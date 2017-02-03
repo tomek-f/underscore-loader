@@ -12,7 +12,7 @@
   underscoreTemplateLoader: {
     engine: 'lodash',
     engineFull: null,
-    minify: false,
+    minify: true,
     minifierOptions: {
       removeComments: true,
       collapseWhitespace: true,
@@ -39,7 +39,7 @@
 
 ### `minify`
 
-* default is `false`
+* default is `true`
 * uses [html-minifier](https://www.npmjs.com/package/html-minifier)
 
 ### `minifierOptions`
@@ -52,7 +52,7 @@
 
 ## setting template engine
 
-* change `lodash` to sth else (eg. `engine: 'undersocre'`)
+* change `lodash` to sth else (eg. `engine: 'undercore'`)
 * set underscore/lodash/other-module dependency in `package.json`
 * escaping needs escape method: `engineFull: 'var _ = { escape: require(\'lodash.escape\') };'` (THIS IS RECOMMENDED!!!)
 * if you don't use any logic in your templates, you can pass empty string (`engineFull: ''`)
@@ -88,140 +88,9 @@ module.exports = {
 };
 ```
 
-### path examples
+### custom module's path examples (recommended)
 
-#### same relative path for every module
-
-```javascript
-{
-  engine: '../js/tplEngine'
-}
-// or
-{
-  engineFull: 'var _ = require(\'../js/tplEngine\');'
-}
-```
-
-#### absolute path
-
-```javascript
-{
-  engine: '/home/johndoe/Workspace/project/src/js/tplEngine'
-}
-// or (in node)
-{
-  engine: process.cwd() + '/src/js/tplEngine'
-}
-// or
-{
-  engineFull: 'var _ = require(\'/home/johndoe/Workspace/project/src/js/tplEngine\');'
-}
-// or (in node)
-{
-  engineFull: 'var _ = require(\'' + process.cwd() + '/src/js/tplEngine\');'
-}
-```
-
-#### resolve (same relative path)
-
-in loader options (webpack config):
-
-```javascript
-{
-  engine: 'tplEngine'
-}
-// or
-{
-  engineFull: 'var _ = require(\'tplEngine\');'
-}
-```
-
-in webpack config resolve object:
-
-```javascript
-{
-  resolve: {
-    alias: {
-      tplEngine: '../js/templateLoaderEngine.js'
-    }
-  }
-}
-```
-
-#### resolve (absolute path)
-
-in loader options (webpack config):
-
-```javascript
-{
-  engine: 'tplEngine'
-}
-// or
-{
-  engineFull: 'var _ = require(\'tplEngine\');'
-}
-```
-
-in webpack config resolve object:
-
-```javascript
-{
-  resolve: {
-    alias: {
-      tplEngine: '/home/johndoe/Workspace/project/src/js/tplEngine.js'
-    }
-  }
-}
-// or (in node)
-{
-  resolve: {
-    alias: {
-      tplEngine: process.cwd() + '/src/js/tplEngine.js'
-    }
-  }
-}
-```
-
-## pass template options - [lodash documentation](https://lodash.com/docs#template)
-
-### method #1 (webpack config loader)
-
-```javascript
-{
-  module: {
-    loaders: [
-      {
-        test: /\.tpl$/,
-        loader: 'underscore-loader?variable=data'
-      }
-    ]
-  }
-}
-// or
-{
-  module: {
-    loaders: [
-      {
-        test: /\.tpl$/,
-        loader: 'underscore-loader',
-        query: {
-          variable: 'data'
-        }
-      }
-    ]
-  }
-}
-```
-
-### method #2 (webpack config `underscoreTemplateLoader.templateOptions`)
-
-```javascript
-{
-  underscoreTemplateLoader: {
-    templateOptions: { variable: 'data' }
-  }
-}
-```
+[View on github](https://github.com/tomek-f/underscore-loader/blob/master/customModulesPath.md).
 
 ## Changelog
 
