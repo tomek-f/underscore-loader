@@ -92,6 +92,6 @@ module.exports = {
 
 [View on github](https://github.com/tomek-f/underscore-loader/blob/master/customModulesPath.md).
 
-## Changelog
+## changelog
 
 [View on github](https://github.com/tomek-f/underscore-loader/blob/master/changelog.md).
