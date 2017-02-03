@@ -2,7 +2,7 @@
 
 ## 2.0.0
 
-* deps
+* readme
 * webpack 2 changes
 
 ## 1.0.0
@@ -28,7 +28,7 @@
 
 * index.js reformat (80 -> 120)
 * description
-* README.md
+* readme
 
 ## 0.0.1
 
