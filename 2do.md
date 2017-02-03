@@ -1,5 +1,5 @@
 # 2do
 
-* [ ] readme
+* [ ] simple loader readme
 * [ ] tests
 * [x] es6 template strings
