@@ -1,4 +1,4 @@
-# Engine paths
+# custom module's path examples
 
 ## same relative path for every module
 

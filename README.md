@@ -88,7 +88,7 @@ module.exports = {
 };
 ```
 
-### custom module's path examples (recommended)
+### custom module's path examples
 
 [View on github](https://github.com/tomek-f/underscore-loader/blob/master/customModulesPath.md).
 
