@@ -52,7 +52,7 @@
 
 ## setting template engine
 
-* change `lodash` to sth else (eg. `engine: 'undercore'`)
+* change `lodash` to sth else (eg. `engine: 'underscore'`)
 * set underscore/lodash/other-module dependency in `package.json`
 * escaping needs escape method: `engineFull: 'var _ = { escape: require(\'lodash.escape\') };'` (THIS IS RECOMMENDED!!!)
 * if you don't use any logic in your templates, you can pass empty string (`engineFull: ''`)
