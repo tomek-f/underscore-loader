@@ -1,7 +1,7 @@
 'use strict';
 
 const loaderUtils = require('loader-utils');
-const template = require('lodash.template');
+const lodashTemplate = require('lodash.template');
 const minify = require('html-minifier').minify;
 const extendDeepImmutable = require('extend-deep-immutable');
 
@@ -14,8 +14,11 @@ const defaults = {
     collapseWhitespace: true,
     conservativeCollapse: true
   },
+  originalSource: true,
   templateOptions: {}
 };
+
+const generateSource = source => `\n/*\noriginal source:\n\n${ source }\n*/\n`;
 
 module.exports = function (source) {
   const config = [
@@ -23,10 +26,12 @@ module.exports = function (source) {
     loaderUtils.getLoaderConfig(this, 'underscoreTemplateLoader')
   ]
     .reduce(extendDeepImmutable);
-  let templateLocal;
+  let template;
 
   if (config.engineFull === null) config.engineFull = `var _ = require('${ config.engine }');`;
-  templateLocal = config.minify ? minify(source, config.minifierOptions) : source;
-  templateLocal = template(templateLocal, config.templateOptions);
-  return `${ config.engineFull }\n\nmodule.exports = ${ templateLocal };\n`;
+  template = config.minify ? minify(source, config.minifierOptions) : source;
+  template = lodashTemplate(template, config.templateOptions);
+  template = `${ config.engineFull }\nmodule.exports = ${ template };\n`;
+  if (config.originalSource) template += generateSource(source);
+  return template;
 };

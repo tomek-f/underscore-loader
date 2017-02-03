@@ -18,6 +18,7 @@
       collapseWhitespace: true,
       conservativeCollapse: true
     },
+    originalSource: true,
     templateOptions: {}
   }
 }
@@ -46,6 +47,10 @@
 
 * minify options - [html-minifier options](https://www.npmjs.com/package/html-minifier#options-quick-reference)
 
+### `originalSource`
+
+* append original html in comment
+
 ### `templateOptions`
 
 * template options - [lodash documentation](https://lodash.com/docs#template)
@@ -56,7 +61,7 @@
 * set underscore/lodash/other-module dependency in `package.json`
 * escaping needs escape method: `engineFull: 'var _ = { escape: require(\'lodash.escape\') };'` (THIS IS RECOMMENDED!!!)
 * if you don't use any logic in your templates, you can pass empty string (`engineFull: ''`)
-* if you don't need escape method, you can change var name and use it instead of `_` in template: `engineFull: 'var foo = require(sth)'`
+* if you don't need escape method, you can change var name and use it instead of `_` in template: `engineFull: 'var foo = require(\'sth\')'`
 * you can use your own module as template engine (`engine: '../js/tplEngine'`), path is relative to template, use absolute path or resolve if your templates have different relative path to your module
 
 ### example of custom module in string

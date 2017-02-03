@@ -2,6 +2,7 @@
 
 ## 2.0.0
 
+* `originalSource` option
 * readme
 * webpack 2 changes
 
