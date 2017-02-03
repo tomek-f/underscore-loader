@@ -24,6 +24,10 @@ module.exports = function (source) {
   const config = [defaults, this.options.underscoreTemplateLoader, { templateOptions: queryOptions }]
     .reduce(extendDeepImmutable);
   let templateLocal;
+  
+  console.log(this);
+  console.log(this.options);
+  conole.log(loaderUtils.getLoaderConfig(this, 'underscoreTemplateLoader'));
 
   if (config.engineFull === null) config.engineFull = `var _ = require('${ config.engine }');`;
   templateLocal = config.minify ? minify(source, config.minifierOptions) : source;
