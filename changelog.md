@@ -2,6 +2,7 @@
 
 ## 2.0.0
 
+* minifier default options
 * engine works differently now
 * `originalSource` option
 * readme
