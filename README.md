@@ -21,7 +21,7 @@ $ npm install --save underscore-loader lodash.escape
     minifierOptions: {
       removeComments: true,
       collapseWhitespace: true,
-      conservativeCollapse: true
+      collapseInlineTagWhitespace: true
     },
     originalSource: true,
     templateOptions: {}
