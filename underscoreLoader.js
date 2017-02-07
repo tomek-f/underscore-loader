@@ -6,8 +6,7 @@ const minify = require('html-minifier').minify;
 const extendDeepImmutable = require('extend-deep-immutable');
 
 const defaults = {
-  engine: 'lodash',
-  engineFull: null,
+  engine: 'var _ = { escape: require(\'lodash.escape\') };',
   minify: true,
   minifierOptions: {
     removeComments: true,
@@ -28,10 +27,9 @@ module.exports = function (source) {
     .reduce(extendDeepImmutable);
   let template;
 
-  if (config.engineFull === null) config.engineFull = `var _ = require('${ config.engine }');`;
   template = config.minify ? minify(source, config.minifierOptions) : source;
   template = lodashTemplate(template, config.templateOptions);
-  template = `${ config.engineFull }\nmodule.exports = ${ template };\n`;
+  template = `${ config.engine }\nmodule.exports = ${ template };\n`;
   if (config.originalSource) template += generateSource(source);
   return template;
 };

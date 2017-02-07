@@ -2,6 +2,7 @@
 
 ## 2.0.0
 
+* engine works differently now
 * `originalSource` option
 * readme
 * webpack 2 changes

@@ -5,13 +5,18 @@
 * template is compliled with [lodash.template](https://www.npmjs.com/package/lodash.template)
 * template are minified by [html-minifier](https://www.npmjs.com/package/html-minifier)
 
-## options (defaults)
+## Installation
+
+```bash
+$ npm install --save underscore-loader lodash.escape
+```
+
+## Options (defaults)
 
 ```javascript
 {
   underscoreTemplateLoader: {
-    engine: 'lodash',
-    engineFull: null,
+    engine: 'var _ = { escape: require(\'lodash.escape\') };',
     minify: true,
     minifierOptions: {
       removeComments: true,
@@ -26,17 +31,9 @@
 
 ### `engine`
 
-* value to set in `'var _ = require(\'' + engine + '\');'` in the template output
-* unused if `engineFull` is not `null`
-* `lodash` is default, change it to `underscore` or `some-other-engine`
-* see [setting template engine](#setting-template-engine) for more examples
-
-### `engineFull`
-
-* value to set (eg. `engineFull: 'var _ = require('lodash');'`) in the template output
-* you can change it to sth else: `'engineFull: var trololo = require('some-other-engine');'` or empty string
-* recommended value: `engineFull: 'var _ = { escape: require(\'lodash.escape\') };'`
-* see [setting template engine](#setting-template-engine) for more examples
+* for full `lodash` set it to `var _ = require(\'lodash\');`
+* for full `underscore` set it to `var _ = require(\'underscore\');`
+* `lodash.escape` is default, change it to `lodash`, `underscore` or `some-other-engine`
 
 ### `minify`
 
@@ -55,48 +52,15 @@
 
 * template options - [lodash documentation](https://lodash.com/docs#template)
 
-## setting template engine
+## Setting template engine
 
-* change `lodash` to sth else (eg. `engine: 'underscore'`)
 * set underscore/lodash/other-module dependency in `package.json`
-* escaping needs escape method: `engineFull: 'var _ = { escape: require(\'lodash.escape\') };'` (THIS IS RECOMMENDED!!!)
-* if you don't use any logic in your templates, you can pass empty string (`engineFull: ''`)
-* if you don't need escape method, you can change var name and use it instead of `_` in template: `engineFull: 'var foo = require(\'sth\')'`
-* you can use your own module as template engine (`engine: '../js/tplEngine'`), path is relative to template, use absolute path or resolve if your templates have different relative path to your module
+* if you don't use any logic in your templates, you can pass empty string (`engine: ''`)
 
-### example of custom module in string
-
-THIS IS RECOMMENDED SETUP.
-
-```javascript
-{
-  engineFull: 'var _ = { escape: require(\'lodash.escape\') };'
-}
-```
-
-or (NOT RECOMMENDED)
-
-```javascript
-{
-  engineFull: 'var _ = require(\'customModulePath\');'
-}
-```
-
-### example of custom module - forEach heaven :)
-
-```javascript
-module.exports = {
-  forEachArr: Function.prototype.call.bind(Array.prototype.forEach),
-  forEach: require('lodash.foreach'),
-  each: $.each,
-  escape: require('lodash.escape')
-};
-```
-
-### custom module's path examples
+### Custom module's path examples (old README)
 
 [View on github](https://github.com/tomek-f/underscore-loader/blob/master/customModulesPath.md).
 
-## changelog
+## Changelog
 
 [View on github](https://github.com/tomek-f/underscore-loader/blob/master/changelog.md).

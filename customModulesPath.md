@@ -1,14 +1,21 @@
-# custom module's path examples
+# custom module's path examples (not verified)
+
+## forEach heaven
+
+```javascript
+module.exports = {
+  forEachArr: Function.prototype.call.bind(Array.prototype.forEach),
+  forEach: require('lodash.foreach'),
+  each: $.each,
+  escape: require('lodash.escape')
+};
+```
 
 ## same relative path for every module
 
 ```javascript
 {
-  engine: '../js/tplEngine'
-}
-// or
-{
-  engineFull: 'var _ = require(\'../js/tplEngine\');'
+  engine: 'var _ = require(\'../js/tplEngine\');'
 }
 ```
 
@@ -16,19 +23,11 @@
 
 ```javascript
 {
-  engine: '/home/johndoe/Workspace/project/src/js/tplEngine'
+  engine: 'var _ = require(\'/home/johndoe/Workspace/project/src/js/tplEngine\');'
 }
 // or (in node)
 {
-  engine: process.cwd() + '/src/js/tplEngine'
-}
-// or
-{
-  engineFull: 'var _ = require(\'/home/johndoe/Workspace/project/src/js/tplEngine\');'
-}
-// or (in node)
-{
-  engineFull: 'var _ = require(\'' + process.cwd() + '/src/js/tplEngine\');'
+  engine: 'var _ = require(\'' + process.cwd() + '/src/js/tplEngine\');'
 }
 ```
 
@@ -38,11 +37,7 @@ in loader options (webpack config):
 
 ```javascript
 {
-  engine: 'tplEngine'
-}
-// or
-{
-  engineFull: 'var _ = require(\'tplEngine\');'
+  engine: 'var _ = require(\'tplEngine\');'
 }
 ```
 
@@ -64,11 +59,7 @@ in loader options (webpack config):
 
 ```javascript
 {
-  engine: 'tplEngine'
-}
-// or
-{
-  engineFull: 'var _ = require(\'tplEngine\');'
+  engine: 'var _ = require(\'tplEngine\');'
 }
 ```
 
