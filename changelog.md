@@ -1,5 +1,9 @@
 # changelog.md
 
+## 3.0.0
+
+* deps (html-minifier, loader-utils)
+
 ## 2.0.0
 
 * minifier default options

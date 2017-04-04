@@ -22,7 +22,7 @@ const generateSource = source => `\n/*\noriginal source:\n\n${ source }\n*/\n`;
 module.exports = function (source) {
   const config = [
     defaults,
-    loaderUtils.getLoaderConfig(this, 'underscoreTemplateLoader')
+    loaderUtils.getOptions(this)
   ]
     .reduce(extendDeepImmutable);
   let template;
@@ -30,6 +30,8 @@ module.exports = function (source) {
   template = config.minify ? minify(source, config.minifierOptions) : source;
   template = lodashTemplate(template, config.templateOptions);
   template = `${ config.engine }\nmodule.exports = ${ template };\n`;
+
   if (config.originalSource) template += generateSource(source);
+
   return template;
 };

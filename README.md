@@ -13,19 +13,22 @@ $ npm install --save underscore-loader lodash.escape
 
 ## Options (defaults)
 
-```javascript
+```js
 {
-  underscoreTemplateLoader: {
-    engine: 'var _ = { escape: require(\'lodash.escape\') };',
-    minify: true,
-    minifierOptions: {
-      removeComments: true,
-      collapseWhitespace: true,
-      collapseInlineTagWhitespace: true
-    },
-    originalSource: true,
-    templateOptions: {}
+  // ...
+ module: {
+    rules: [
+      {
+        test: /\.tpl$/,
+        loader: 'underscore-loader',
+        options: {
+          engine: 'var _ = { escape: require(\'lodash.escape\') };\n',
+          minifierOptions: { collapseInlineTagWhitespace: true }
+        }
+      }
+    ]
   }
+  // ..
 }
 ```
 

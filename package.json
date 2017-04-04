@@ -18,8 +18,8 @@
   "repository": "tomek-f/underscore-loader",
   "dependencies": {
     "extend-deep-immutable": "^1.0.2",
-    "html-minifier": "^3.2.2",
-    "loader-utils": "^0.2.16",
+    "html-minifier": "^3.4.2",
+    "loader-utils": "^1.1.0",
     "lodash.template": "^4.4.0"
   }
 }
