@@ -3,7 +3,6 @@
 const loaderUtils = require('loader-utils');
 const lodashTemplate = require('lodash.template');
 const minify = require('html-minifier').minify;
-const extendDeepImmutable = require('extend-deep-immutable');
 
 const defaults = {
   engine: 'var _ = { escape: require(\'lodash.escape\') };',
@@ -17,21 +16,18 @@ const defaults = {
   templateOptions: {}
 };
 
-const generateSource = source => `\n/*\noriginal source:\n\n${ source }\n*/\n`;
-
 module.exports = function (source) {
-  const config = [
-    defaults,
-    loaderUtils.getOptions(this)
-  ]
-    .reduce(extendDeepImmutable);
+  const config = Object.assign({}, defaults, loaderUtils.getOptions(this));
   let template;
+
+  config.minifierOptions = Object.assign({}, defaults.minifierOptions, config.minifierOptions);
+  config.templateOptions = Object.assign({}, defaults.templateOptions, config.templateOptions);
 
   template = config.minify ? minify(source, config.minifierOptions) : source;
   template = lodashTemplate(template, config.templateOptions);
   template = `${ config.engine }\nmodule.exports = ${ template };\n`;
 
-  if (config.originalSource) template += generateSource(source);
+  if (config.originalSource) template += `\n/*\noriginal source:\n\n${ source }\n*/\n`;
 
   return template;
 };

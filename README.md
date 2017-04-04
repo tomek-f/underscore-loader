@@ -17,6 +17,8 @@ For webpack 1.x.x use version 2.0.0
 
 ## Options (defaults)
 
+Webpack (2.x.x) config
+
 ```js
 {
   // ...

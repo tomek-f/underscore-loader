@@ -2,7 +2,10 @@
 
 ## 3.0.0
 
-* deps (html-minifier, loader-utils)
+* webpack 2.x.x support only (works with 2.3.2 for sure)
+* working deep extend
+* deps update (html-minifier, loader-utils)
+* deps remove (extend-deep-immutable)
 
 ## 2.0.0
 
