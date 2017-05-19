@@ -2,8 +2,8 @@
 
 > Webpack loader for pre-compiled Underscore/Lodash templates with HTML minification
 
-* template is compliled with [lodash.template](https://www.npmjs.com/package/lodash.template)
-* template are minified by [html-minifier](https://www.npmjs.com/package/html-minifier)
+* templates are compliled with [lodash.template](https://www.npmjs.com/package/lodash.template)
+* templates are minified by [html-minifier](https://www.npmjs.com/package/html-minifier)
 
 ## Installation
 
