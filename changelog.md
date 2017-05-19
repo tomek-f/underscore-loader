@@ -1,5 +1,9 @@
 # changelog.md
 
+### x.x.x
+
+* readme
+
 ## 3.0.0
 
 * webpack 2.x.x support only (works with 2.3.2 for sure)
