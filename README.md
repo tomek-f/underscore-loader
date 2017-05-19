@@ -40,9 +40,10 @@ Webpack (2.x.x) config
 
 ### `engine`
 
+* set it to `var _ = { escape: require(\'lodash/escape\') };`
 * for full `lodash` set it to `var _ = require(\'lodash\');`
 * for full `underscore` set it to `var _ = require(\'underscore\');`
-* `lodash.escape` is default, change it to `lodash`, `underscore` or `some-other-engine`
+* `lodash.escape` is default, change it to `lodash`, `lodash/escape`,  `underscore` or `some-other-engine`
 
 ### `minify`
 
